@@ -1,5 +1,50 @@
-Data Migration 
-H2 Database dataların toplu bir şekilde oluşturulması için h2 ortamına aşağıdaki SQL çalıştırılabilir 
+# Lonferans Sunum Projesi
+Gün içerisinde 9:00 - 17:00 arasında belirli dakikalarda olan
+sunumları otomatize ederek, düzenli bir program çıtkısı elde eder.
+
+-------------------------------------------------------------
+## Api Akışı
+İstekler swagger üzerinden tetiklenebilir.
+Swagger Adresi
+http://localhost:8072/swagger-ui/index.html#/
+
+-------------------------------------------------------------
+
+## Apiler
+### /event/save
+  Yeni bir event kaydetme apisi
+
+### /event/get
+  Id'ye göre berlirli eventi getirme apisi
+
+### /event/update
+  Id'ye göre belirli eventi update etme servisi
+
+### /event/delete
+  Id'ye göre belirli eventi delete etme servisi
+  
+### /event/find-all
+  Tüm eventleri getirme servisi
+  
+### /event/presentation-program
+  Salon sayısına göre program çıktısı hazırlayan api
+
+-------------------------------------------------------------
+
+ ## Kullanılan Kütüphaneler
+* spring-boot-starter-web
+* spring-boot-devtools
+* h2 database
+* lombok
+* spring-boot-starter-test
+* springdoc-openapi-starter-webmvc-ui
+* spring-boot-starter-data-jpa
+
+-------------------------------------------------------------
+
+## Data Migration 
+H2 Database dataların toplu bir şekilde oluşturulması 
+için h2 ortamına aşağıdaki SQL çalıştırılabilir 
 yada tekli data şeklinde Swagger üzerinden tetiklenebilir.
 http://localhost:8072/h2
 
