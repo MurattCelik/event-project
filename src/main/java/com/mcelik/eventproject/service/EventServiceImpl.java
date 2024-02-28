@@ -20,6 +20,7 @@ import java.util.Optional;
 import java.util.Random;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -34,11 +35,13 @@ public class EventServiceImpl implements EventService {
     public Event saveEvent(EventDto eventDto) {
         long startMs = System.currentTimeMillis();
         boolean result = false;
-        Event savedEvent = null;
+        Event savedEvent = new Event();
         try {
-            Event event = convertSaveEntity(eventDto);
-            savedEvent = eventRepository.save(event);
-            result = true;
+            if (validateEvent(eventDto)) {
+                Event event = convertSaveEntity(eventDto);
+                savedEvent = eventRepository.save(event);
+                result = true;
+            }
         } catch (Exception ex) {
             log.error("[saveEvent()] saved failed :: eventName:{}, duration:{}", eventDto.getEventName(),
                     (System.currentTimeMillis() - startMs), ex);
@@ -274,6 +277,25 @@ public class EventServiceImpl implements EventService {
             event.setDurationUnit(eventDto.getDurationUnit());
         }
         return event;
+    }
+
+    private boolean validateEvent(EventDto eventDto) {
+        if (StringUtils.isBlank((eventDto.getEventName()))) {
+            return false;
+        }
+
+        if (StringUtils.isBlank((eventDto.getSpeakorFullName()))) {
+            return false;
+        }
+
+        if (eventDto.getDuration() == 0) {
+            return false;
+        }
+
+        if (StringUtils.isBlank((eventDto.getDurationUnit()))) {
+            return false;
+        }
+        return true;
     }
 
 }
