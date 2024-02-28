@@ -1,4 +1,4 @@
-# Lonferans Sunum Projesi
+# Konferans Sunum Projesi
 Gün içerisinde 9:00 - 17:00 arasında belirli dakikalarda olan
 sunumları otomatize ederek, düzenli bir program çıtkısı elde eder.
 
