@@ -1,6 +1,66 @@
-Data Migration 
-H2 Database dataların toplu bir şekilde oluşturulması için h2 ortamına aşağıdaki SQL çalıştırılabilir 
+# Konferans Sunum Projesi
+Gün içerisinde 9:00 - 17:00 arasında belirli dakikalarda olan
+sunumları otomatize ederek, düzenli bir program çıtkısı elde eder.
+
+* Konferansta sabah ve öğleden sonra sunumlar yapılacaktır.
+* Hem sabah, hem öğleden sonra aynı anda birden fazla sunum yapılabilir.
+* Sabah sunumları saat 9:00'da başlar, 12:00'de biter.
+* Saat 12:00'de öğle yemeği olacaktır.
+* Öğleden sonra sunumları 13:00'da başlar,
+* İletişim etkinliklerine (networking) kadar sürer.
+* Eğer iletişim etkinliği yoksa saat 17:00'da biter.
+* İletişim etkinlikleri sunumlardan zaman kalırsa yapılır.
+* 16:00'dan önce başlayamaz ve en geç 17:00'de biter.
+* Sunum süreleri dakika cinsindendir veya "lightning" olarak belirtilir.
+* Sunumlar arasında mola bulunmamaktadır.
+
+-------------------------------------------------------------
+## Api Akışı
+İstekler swagger üzerinden tetiklenebilir.
+
+#### Swagger Adresi
+http://localhost:8072/swagger-ui/index.html#/
+
+-------------------------------------------------------------
+
+## Apiler
+### /event/save
+  Yeni bir event kaydetme apisi
+
+### /event/get
+  Id'ye göre belirli eventi getirme apisi
+
+### /event/update
+  Id'ye göre belirli eventi update etme servisi
+
+### /event/delete
+  Id'ye göre belirli eventi delete etme servisi
+  
+### /event/find-all
+  Tüm eventleri getirme servisi
+  
+### /event/presentation-program
+  Salon sayısına göre program çıktısı hazırlayan api
+
+-------------------------------------------------------------
+
+ ## Kullanılan Kütüphaneler
+* spring-boot-starter-web
+* spring-boot-devtools
+* h2 database
+* lombok
+* spring-boot-starter-test
+* springdoc-openapi-starter-webmvc-ui
+* spring-boot-starter-data-jpa
+
+-------------------------------------------------------------
+
+## Data Migration 
+H2 Database dataların toplu bir şekilde oluşturulması 
+için h2 ortamına aşağıdaki SQL çalıştırılabilir 
 yada tekli data şeklinde Swagger üzerinden tetiklenebilir.
+
+#### H2 Database Adresi
 http://localhost:8072/h2
 
 INSERT INTO EVENT(EVENT_NAME, SPEAKOR_FULL_NAME, DURATION, DURATION_UNIT) 
