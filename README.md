@@ -28,7 +28,7 @@ http://localhost:8072/swagger-ui/index.html#/
   Yeni bir event kaydetme apisi
 
 ### /event/get
-  Id'ye göre berlirli eventi getirme apisi
+  Id'ye göre belirli eventi getirme apisi
 
 ### /event/update
   Id'ye göre belirli eventi update etme servisi
